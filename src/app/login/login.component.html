@@ -1,0 +1,39 @@
+<div id="login">
+    <h3 class="text-center text-white pt-5">Login form</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form [formGroup]="form" id="login-form" class="form" action="" method="post">
+                        <h3 class="text-center text-info">Inicio Sesion</h3>
+                        <div class="form-group">
+                            <label for="username" class="text-info">Usuario:</label><br>
+                            <input type="email" name="username" id="username"
+                            class="form-control" placeholder="Ingresa tu usuario"
+                            autocomplete="off" formControlName="username">
+                            <!-- <p *ngIf="correoInvalido">Ups, valida tu correo con P </p> -->
+                            <div *ngIf="f.username.touched && f.username.invalid">
+                                <div *ngIf="f.username.errors.required">Correo es requerido</div>
+                                <div *ngIf="f.username.errors.email">Ups, valida tu correo</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Contraseña:</label><br>
+                            <input type="password"  name="password" id="password" class="form-control" formControlName="password"> 
+                        </div>
+                        <div *ngIf="f.password.touched && f.password.invalid">
+                            <div *ngIf="f.password.errors.required">Contrasena es requerida</div>
+                        </div>
+                        <div class="form-group">
+                            <br>
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar" [disabled]="form.invalid" (click)="submit()">
+                        </div>
+                        <div id="register-link" class="text-right">
+                            <a href="#" class="text-info">Registrate aquí</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
